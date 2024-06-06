@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, SafeAreaView, ScrollView } from 'react-native';
 import { Header } from '@rneui/themed';
 import { ProductList } from './components/ProductList';
+import { Cart } from './components/Cart';
 
 import DATA_PRODUCTS from './data.json';
 
@@ -10,6 +11,7 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <Header
         centerComponent={{ text: 'Shopping', style: styles.headerCenterText }}
+        rightComponent={<Cart />}
       />
 
       <ScrollView style={styles.scrollElement}>
