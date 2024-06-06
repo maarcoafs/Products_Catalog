@@ -1,10 +1,16 @@
-import { StyleSheet, Text } from "react-native";
+import { useContext } from "react";
+import { StyleSheet, Text, TouchableHighlight } from "react-native";
+import { CartContext } from "../context/CartContext";
 
 export function Cart(){
+    const { cart } = useContext(CartContext);
+
     return (
-        <Text style={styles.cartText}>
-            0
-        </Text>
+        <TouchableHighlight>
+            <Text style={styles.cartText}>
+                {cart}
+            </Text>
+        </TouchableHighlight>
     )
 }
 

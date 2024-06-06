@@ -3,23 +3,26 @@ import { StyleSheet, SafeAreaView, ScrollView } from 'react-native';
 import { Header } from '@rneui/themed';
 import { ProductList } from './components/ProductList';
 import { Cart } from './components/Cart';
+import { CartProvider } from './context/CartContext';
 
 import DATA_PRODUCTS from './data.json';
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <Header
-        centerComponent={{ text: 'Shopping', style: styles.headerCenterText }}
-        rightComponent={<Cart />}
-      />
+    <CartProvider>
+      <SafeAreaView style={styles.container}>
+        <Header
+          centerComponent={{ text: 'Shopping', style: styles.headerCenterText }}
+          rightComponent={<Cart />}
+        />
 
-      <ScrollView style={styles.scrollElement}>
-        <ProductList data={DATA_PRODUCTS} />
-      </ScrollView>
+        <ScrollView style={styles.scrollElement}>
+          <ProductList data={DATA_PRODUCTS} />
+        </ScrollView>
 
-      <StatusBar style="auto" />
-    </SafeAreaView>
+        <StatusBar style="auto" />
+      </SafeAreaView>
+    </CartProvider>
   );
 }
 
